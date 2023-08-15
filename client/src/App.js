@@ -1,33 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
-import {useEffect} from "react"
+// import basics
+import { Routes, Route } from "react-router-dom";
 
-function App() {
-  useEffect(() => {
-    fetch("/hello")
-    .then(res=>res.json())
-    .then(data=>console.log(data))
-  
-  })
-  
+//import components
+import GlobalStyle from "./styles/GlobalStyles";
+import Header from "./components/Header"
+import Home from "./components/Home";
+import Login from "./components/Login";
+import Calendar from "./components/Calendar";
+import Summary from "./components/Summary";
+import TripForm from "./components/TripForm";
+import Details from "./components/Details";
+import Todo from "./components/Todo";
+import Checklist from "./components/Checklist";
+import Weather from "./components/Weather";
+import Budget from "./components/Budget";
+import NotFound from "./components/NotFound";
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <GlobalStyle />
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/calendar" element={<Calendar />} />
+        <Route path="/summary" element={<Summary />} />
+        <Route path="/tripForm" element={<TripForm />} />
+        <Route path="/:tripId/details" element={<Details />} />
+        <Route path="/:tripId/todo" element={<Todo />} />
+        <Route path="/:tripId/budget" element={<Budget />} />
+        <Route path="/:tripId/checklist" element={<Checklist />} />
+        <Route path="/:tripId/weather" element={<Weather />} />
+        <Route path="/:tripId/budget" element={<Budget />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </>
   );
-}
+};
 
 export default App;
