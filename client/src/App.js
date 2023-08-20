@@ -1,26 +1,33 @@
 // import basics
 import { Routes, Route } from "react-router-dom";
+import { useAuth0 } from "@auth0/auth0-react";
 
 //import components
 import GlobalStyle from "./styles/GlobalStyles";
-import Header from "./components/Header"
-import Home from "./components/Home";
-import Login from "./components/Login";
-import Calendar from "./components/Calendar";
-import Summary from "./components/Summary";
-import TripForm from "./components/TripForm";
-import Details from "./components/Details";
-import Todo from "./components/Todo";
-import Checklist from "./components/Checklist";
-import Weather from "./components/Weather";
-import Budget from "./components/Budget";
-import NotFound from "./components/NotFound";
+import LoadingPage from "./components/LoadingPage"
+import MainNav from "./components/MainNav"
+import Home from "./pages/Home";
+import Login from "./pages/Login";
+import Calendar from "./pages/Calendar";
+import Summary from "./pages/Summary";
+import TripForm from "./pages/TripForm";
+import Details from "./pages/Details";
+import Todo from "./pages/Todo";
+import Checklist from "./pages/Checklist";
+import Weather from "./pages/Weather";
+import Budget from "./pages/Budget";
+import NotFound from "./pages/NotFound";
 
 const App = () => {
+  const { isLoading } = useAuth0();
+
   return (
     <>
       <GlobalStyle />
-      <Header />
+      <MainNav />
+      {isLoading
+      ? < LoadingPage /> 
+      : 
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
@@ -34,7 +41,8 @@ const App = () => {
         <Route path="/:tripId/weather" element={<Weather />} />
         <Route path="/:tripId/budget" element={<Budget />} />
         <Route path="*" element={<NotFound />} />
-      </Routes>
+    </Routes>}
+     
     </>
   );
 };
