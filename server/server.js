@@ -1,9 +1,45 @@
-const express = require("express");
-const app = express();
+'use strict';
+
+// imports and setup
+const express = require('express');
+const morgan = require('morgan');
+const router = require('./router/routes');
+const { client } = require('./db/dbHandler');
+
 const PORT = 8000;
 
-app.use(require("./router/routes"));
+const server = express();
 
-app.listen(PORT, ()=>{
-    console.log(`Server listening on port ${PORT}`)
-})
+// middlewares
+server.use(function (req, res, next) {
+  res.header(
+    'Access-Control-Allow-Methods',
+    'OPTIONS, HEAD, GET, PUT, POST, DELETE'
+  );
+  res.header(
+    'Access-Control-Allow-Headers',
+    'Origin, X-Requested-With, Content-Type, Accept'
+  );
+  next();
+});
+server.use(morgan('tiny'));
+server.use(express.static('./server/assets'));
+server.use(express.json());
+server.use(express.urlencoded({ extended: false }));
+server.use('/', express.static(__dirname + '/'));
+
+// routes
+server.use('/tripplanner', router);
+
+// connect to db and server
+const start = async () => {
+  try {
+    await client.connect();
+    console.log("Connected to mongo");
+    server.listen(PORT, () => console.info(`Listening on port ${PORT}`));
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+start();
