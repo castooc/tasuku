@@ -1,9 +1,15 @@
-import React from 'react'
+// utility function to make fetch request
+// purpose: avoid entering the try-catch block everytime
 
-const fetch-request = () => {
-  return (
-    <div>fetch-request</div>
-  )
-}
+const fetchRequest = async(api) => {
+  try {
+    const data = await api();
+    if (data.error) throw new Error(data.error);
+    return data;
 
-export default fetch-request
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export default fetchRequest;

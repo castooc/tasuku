@@ -3,3 +3,4 @@
 
 export { Auth0ProviderWithNavigate } from "./components/Auth0Provider"
 export { NavBarButtons } from "./components/NavBarButtons"
+export { verifyExistingUser } from "./components/verifyExistingUser"

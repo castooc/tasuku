@@ -14,7 +14,7 @@ const MainNav = () => {
         </ContainerMain>
         {isAuthenticated && (
           <ContainerLoginUser>
-              <Routes to="/summary">Summary</Routes>
+              <Routes to="/profile">Profile</Routes>
               <Routes to="/calendar">Calendar</Routes>
               <Routes to="/tripform">Create Trip</Routes>
           </ContainerLoginUser>

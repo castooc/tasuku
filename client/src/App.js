@@ -10,7 +10,7 @@ import MainNav from "./components/MainNav"
 import Home from "./pages/Home";
 import About from "./pages/About"
 import Calendar from "./pages/Calendar";
-import Summary from "./pages/Summary";
+import Profile from "./pages/Profile";
 import TripForm from "./pages/TripForm";
 import Details from "./pages/Details";
 import Todo from "./pages/Todo";
@@ -32,7 +32,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
-        <Route path="/summary" element={<AuthenticationGuard component={Summary} />} />
+        <Route path="/profile" element={<AuthenticationGuard component={Profile} />} />
         <Route path="/calendar" element={<AuthenticationGuard component={Calendar} />} />
         <Route path="/tripForm" element={<AuthenticationGuard component={TripForm} />} />
         <Route path="/:tripId/details" element={<AuthenticationGuard component={Details} />} />
