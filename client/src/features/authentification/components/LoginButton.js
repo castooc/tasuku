@@ -1,5 +1,6 @@
 import { useAuth0 } from "@auth0/auth0-react";
-import React from "react";
+import { styled } from "styled-components";
+import { LogIn } from "react-feather";
 
 export const LoginButton = () => {
   const { loginWithRedirect } = useAuth0();
@@ -14,8 +15,11 @@ export const LoginButton = () => {
   };
 
   return (
-    <button onClick={handleLogin}>
-      Log In
-    </button>
+    <Button onClick={handleLogin}>
+      <LogIn size={36}/>
+    </Button>
   );
 };
+const Button = styled.button`
+  all : unset;
+`

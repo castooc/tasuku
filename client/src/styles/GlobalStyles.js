@@ -3,7 +3,6 @@ import { createGlobalStyle } from 'styled-components';
 const GlobalStyle = createGlobalStyle`
     :root {
       // All custom style variables
-
     }
 
     /* http://meyerweb.com/eric/tools/css/reset/ 
@@ -37,7 +36,9 @@ footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 body {
-	font-family: sans-serif;
+    background-color : #C5FAD5;
+    color : #AA96DA;
+	font-family: 'Dosis', sans-serif;
 	line-height: 1.5;
 	margin: 0px auto;
 	width: 100vw;

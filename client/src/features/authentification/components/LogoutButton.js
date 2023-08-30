@@ -1,5 +1,6 @@
 import { useAuth0 } from "@auth0/auth0-react";
-import React from "react";
+import { styled } from "styled-components";
+import { LogOut } from "react-feather";
 
 export const LogoutButton = () => {
   const { logout } = useAuth0();
@@ -13,8 +14,11 @@ export const LogoutButton = () => {
   };
 
   return (
-    <button onClick={handleLogout}>
-      Log Out
-    </button>
+    <Button onClick={handleLogout}>
+      <LogOut size={36}/>
+    </Button>
   );
 };
+const Button = styled.button`
+  all : unset;
+`

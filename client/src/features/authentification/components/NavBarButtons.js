@@ -1,24 +1,37 @@
+import { styled } from "styled-components";
+
 import { LoginButton } from "./LoginButton";
 import { LogoutButton } from "./LogoutButton";
 import { SignupButton } from "./SignupButton";
-import { Trybutton } from "./Trybutton";
 
 export const NavBarButtons = ({isAuthenticated}) => {
 
   return (
-    <div className="nav-bar__buttons">
+    <Wrapper>
       {!isAuthenticated && (
-        <>
-          <SignupButton />
-          <LoginButton />
-          <Trybutton />
-        </>
+        <ButtonsContainer>
+          <ButtonContainer>
+            <SignupButton />
+          </ButtonContainer>
+          <ButtonContainer>
+            <LoginButton />
+          </ButtonContainer>
+        </ButtonsContainer>
       )}
       {isAuthenticated && (
-        <>
+        <ButtonContainer>
           <LogoutButton />
-        </>
+        </ButtonContainer>
       )}
-    </div>
+    </Wrapper>
   );
 };
+
+const Wrapper = styled.div`
+`
+const ButtonsContainer = styled.div`
+  display:flex;
+`
+const ButtonContainer = styled.div`
+  margin:0 1rem;
+`
