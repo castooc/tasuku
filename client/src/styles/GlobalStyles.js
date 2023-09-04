@@ -36,9 +36,9 @@ footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 body {
-    background-color : #C5FAD5;
-    color : #AA96DA;
-	font-family: 'Dosis', sans-serif;
+    background-color : #6384B3;
+    color : white;
+	font-family: 'Open Sans', sans-serif;
 	line-height: 1.5;
 	margin: 0px auto;
 	width: 100vw;

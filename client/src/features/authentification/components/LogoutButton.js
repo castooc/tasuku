@@ -15,10 +15,16 @@ export const LogoutButton = () => {
 
   return (
     <Button onClick={handleLogout}>
-      <LogOut size={36}/>
+      <LogOut size={24}/>
+      <Text>LOG OUT</Text>
     </Button>
   );
 };
 const Button = styled.button`
   all : unset;
+  display:flex;
+  align-items:center;
+`
+const Text = styled.div`
+  margin : 0 1rem;
 `

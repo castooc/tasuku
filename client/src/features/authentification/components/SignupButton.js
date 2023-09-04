@@ -18,11 +18,17 @@ export const SignupButton = () => {
 
   return (
     <Button onClick={handleSignUp}>
-      <PlusCircle size={36}/>
+      <PlusCircle size={24}/>
+      <Text>SIGN IN</Text>
     </Button>
   );
 };
 
 const Button = styled.button`
   all : unset;
+  display:flex;
+  align-items:center;
+`
+const Text = styled.div`
+  margin : 0 1rem;
 `

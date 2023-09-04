@@ -32,6 +32,11 @@ const Wrapper = styled.div`
 const ButtonsContainer = styled.div`
   display:flex;
 `
+
 const ButtonContainer = styled.div`
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-size:0.9rem;
   margin:0 1rem;
 `

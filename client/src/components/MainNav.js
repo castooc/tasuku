@@ -9,51 +9,78 @@ const MainNav = () => {
   const { isAuthenticated } = useAuth0();
 
   return (
+    <>
     <Wrapper>
-        <ContainerMain>
-          <Routes to="/"> 
-            <Icon.Home size={36}/> 
-          </Routes>
-
+      <ContainerIcons>
           <Routes to="/about">
-            <Icon.Info size={36}/> 
+            <Icon.Info size={24}/> 
+            <Text>ABOUT</Text>
           </Routes>
-        </ContainerMain>
         {isAuthenticated && (
-          <ContainerLoginUser>
-              <Routes to="/profile">
-                <Icon.User size={36}/>
-              </Routes>
-
-              <Routes to="/calendar">
-                <Icon.Calendar size={36}/>
-              </Routes>
-
-              <Routes to="/tripform">
-                <Icon.FilePlus size={36}/>
-              </Routes>
-          </ContainerLoginUser>
+          <>
+          <Routes to="/profile">
+            <Icon.User size={24}/>
+            <Text>PROFILE</Text>
+          </Routes>
+        
+          <Routes to="/projects">
+            <Icon.Columns size={24}/>
+            <Text>PROJECTS</Text>
+          </Routes>
+          </>
         )}
+    </ContainerIcons>
+   
+    <ContainerText>
+        <Routes to="/"> <Title>TASUKU</Title> </Routes>
+    </ContainerText>
+   
+    <ContainerButtons>
         <NavBarButtons isAuthenticated = {isAuthenticated}/>
+    </ContainerButtons>
     </Wrapper>
+    <HorizontalLine  />
+    </>
+    
   )
 }
 const Wrapper = styled.div`
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    margin:1.5rem;
+  display: flex;
+  justify-content: center;
+  padding:1.2rem;
 `
-const ContainerMain = styled.div`
-    
+const ContainerIcons = styled.div`
+  display:flex;
+  justify-content:flex-start;
+  align-items:center;
+  min-width:28rem;
 `
-const ContainerLoginUser = styled.div`
-    
+const ContainerText = styled.div`
+  display:flex;
+  justify-content:center;
+  align-items:center;
+`
+const ContainerButtons = styled.div`
+  display:flex;
+  justify-content:flex-end;
+  align-items:center;
+  min-width:28rem
 `
 const Routes = styled(NavLink)`
-  color : #AA96DA;
-  font-family: 'Dosis', sans-serif;
-  margin : 1rem 1rem;
+  display:flex;
+  align-items:center;
+  padding:0.4rem;
+  color : white;
 `
-
+const Title = styled.div`
+  font-size:3rem;
+`
+const Text = styled.div`
+  font-size:0.9rem;
+  padding-left:0.5rem;
+`
+const HorizontalLine = styled.hr`
+  width:65%;
+  color:white;
+`
 export default MainNav;
