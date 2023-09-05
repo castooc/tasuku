@@ -1,5 +1,5 @@
 import { useAuth0 } from "@auth0/auth0-react";
-import { styled } from "styled-components";
+import { Button, Text } from "../../../styles/Button";
 import { PlusCircle } from "react-feather";
 
 export const SignupButton = () => {
@@ -23,12 +23,3 @@ export const SignupButton = () => {
     </Button>
   );
 };
-
-const Button = styled.button`
-  all : unset;
-  display:flex;
-  align-items:center;
-`
-const Text = styled.div`
-  margin : 0 0.3rem;
-`

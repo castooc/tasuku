@@ -30,7 +30,8 @@ const Home = () => {
             </List>
           </ContainerText>
           <ContainerLottie>
-            <Lottie style={{ height: 770, width:800}} animationData={animationData}/>
+            <Lottie style={{ height: 500, width:750}} animationData={animationData}/>
+            <Text>* FOR DEMONTRATION PURPOSES ONLY - NOT THE REAL PRODUCT *</Text>
           </ContainerLottie>
       </Wrapper>
     </>
@@ -44,6 +45,10 @@ const Wrapper = styled.div`
   padding-left:4rem;
 `
 const ContainerLottie = styled.div`
+  margin-top:5rem;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-start;
 `
 const ContainerText = styled.div`
   font-family: 'IBM Plex Mono', monospace;
@@ -74,4 +79,7 @@ const BulletPoints = styled.li`
   margin-left:3rem;
   margin-top:1rem;
   list-style-type:circle;
+`
+const Text = styled.div`
+  font-size:0.8rem;
 `

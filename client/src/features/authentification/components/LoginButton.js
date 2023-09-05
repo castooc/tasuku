@@ -1,5 +1,5 @@
 import { useAuth0 } from "@auth0/auth0-react";
-import { styled } from "styled-components";
+import { Button, Text } from "../../../styles/Button";
 import { LogIn } from "react-feather";
 
 export const LoginButton = () => {
@@ -21,12 +21,4 @@ export const LoginButton = () => {
     </Button>
   );
 };
-const Button = styled.button`
-  all : unset;
-  margin-left:0.8rem;
-  display:flex;
-  align-items:center;
-`
-const Text = styled.div`
-  margin : 0 0.4rem;
-`
+

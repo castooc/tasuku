@@ -11,18 +11,18 @@ const MainNav = () => {
     <>
     <Wrapper>
       <ContainerIcons>
-          <Routes to="/about">
+          <Routes bg = {true} col = {true} to="/about">
             <Icon.Info size={30}/> 
             <Text>ABOUT</Text>
           </Routes>
         {isAuthenticated && (
           <>
-          <Routes to="/profile">
+          <Routes bg = {true} col = {true} to="/profile">
             <Icon.User size={30}/>
             <Text>PROFILE</Text>
           </Routes>
         
-          <Routes to="/projects">
+          <Routes bg = {true} col = {true} to="/projects">
             <Icon.Columns size={30}/>
             <Text>PROJECTS</Text>
           </Routes>
@@ -31,7 +31,7 @@ const MainNav = () => {
     </ContainerIcons>
    
     <ContainerText>
-        <Routes to="/"> <Title>TASUKU</Title> </Routes>
+        <Routes bg = {false} col = {false} to="/"> <Title>TASUKU</Title> </Routes>
     </ContainerText>
    
     <ContainerButtons>
@@ -74,6 +74,19 @@ const Routes = styled(NavLink)`
 	font-family: 'Open Sans', sans-serif;
   padding-left:0.7rem;
   color : black;
+  padding:11px;
+  border-radius: 2rem;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  &:hover,
+  &:focus {
+  transform: translateY(-8px);
+  background-color:${(props)=>props.bg?"black":"white"};
+  color:${(props)=>props.col?"white":"black"};
+  &:active {
+    background-color:${(props)=>props.bg?"black":"white"};
+    color:${(props)=>props.col?"white":"black"};
+  }
 `
 const Title = styled.div`
   font-family: 'Zeyada', cursive;
