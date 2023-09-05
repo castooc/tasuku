@@ -12,7 +12,6 @@ const getUsers = async (req, res) => {
     const result = await usersCollection
       .find()
       .toArray();
-      
     if (result.length > 0) {
       const responseData = {
         status: 200,

@@ -29,7 +29,7 @@ server.use(express.urlencoded({ extended: false }));
 server.use('/', express.static(__dirname + '/'));
 
 // routes
-server.use('/tripplanner', router);
+server.use('/tasuku', router);
 
 // connect to db and server
 const start = async () => {

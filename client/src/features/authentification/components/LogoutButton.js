@@ -15,7 +15,7 @@ export const LogoutButton = () => {
 
   return (
     <Button onClick={handleLogout}>
-      <LogOut size={24}/>
+      <LogOut size={30}/>
       <Text>LOG OUT</Text>
     </Button>
   );
@@ -26,5 +26,5 @@ const Button = styled.button`
   align-items:center;
 `
 const Text = styled.div`
-  margin : 0 1rem;
+  margin : 0 0.3rem;
 `

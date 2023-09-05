@@ -16,16 +16,17 @@ export const LoginButton = () => {
 
   return (
     <Button onClick={handleLogin}>
-      <LogIn size={24}/>
+      <LogIn size={30}/>
       <Text>LOG IN</Text>
     </Button>
   );
 };
 const Button = styled.button`
   all : unset;
+  margin-left:0.8rem;
   display:flex;
   align-items:center;
 `
 const Text = styled.div`
-  margin : 0 1rem;
+  margin : 0 0.4rem;
 `

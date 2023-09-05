@@ -1,15 +1,15 @@
 export const getUsers = async () => {
-  const res = await fetch(`/tripplanner/users`);
+  const res = await fetch(`/tasuku/users`);
   return await res.json();
 };
 
 export const getUser = async (userId) => {
-  const res = await fetch(`/tripplanner/users/${userId}`);
+  const res = await fetch(`/tasuku/users/${userId}`);
   return await res.json();
 };
 
 export const createUser = async (body) => {
-  const res = await fetch("/tripplanner/createuser", {
+  const res = await fetch("/tasuku/createuser", {
     method: "POST",
     headers: {
       "Accept": "application/json",

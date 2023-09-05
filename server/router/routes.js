@@ -15,7 +15,7 @@ const {
 } = require('../handlers/handler');
 
 // endpoints for getting users
-router.get("/users",getUsers)
+router.get("/users",(getUsers))
 router.get("/users/:_id", getUser);
 router.post("/createuser", createUser);
 

@@ -11,7 +11,7 @@ const options = {
 };
 
 const client = new MongoClient(MONGO_URI, options);
-const db = client.db("tripPlanner");
+const db = client.db("tasuku");
 const usersCollection = db.collection("users");
 
 module.exports = { client, db, usersCollection};

@@ -36,8 +36,8 @@ footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 body {
-    background-color : #6384B3;
-    color : white;
+    background-color : white;
+    color : black;
 	font-family: 'Open Sans', sans-serif;
 	line-height: 1.5;
 	margin: 0px auto;
