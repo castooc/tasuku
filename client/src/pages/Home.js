@@ -1,8 +1,9 @@
 import { useAuth0 } from "@auth0/auth0-react";
 import Lottie from "lottie-react"
-import animationData from "../assets/animation_lm5owzo6.json"
+import animationData from "../assets/kanbanBoard.json"
 import { styled } from "styled-components";
 import { verifyExistingUser } from "../features/authentification";
+import  mainLogo from "../assets/mainLogo.png"
 // import roadtrip from "../assets/roadtrip.jpg"
 
 const Home = () => {
@@ -15,9 +16,11 @@ const Home = () => {
   return (
     <>
       <Wrapper>
+        <Container>
+
           <ContainerText>
               <ContainerPunchLine>
-                <PunchLine>UNLEASH YOUR INNER ORGANIZATIONAL GURU</PunchLine>
+                <PunchLine>Channel Your Inner Organizational Guru</PunchLine>
                 <SubPunchLine>Your go-to for any project management need</SubPunchLine>
               </ContainerPunchLine>
             <List>
@@ -33,6 +36,7 @@ const Home = () => {
             <Lottie style={{ height: 500, width:750}} animationData={animationData}/>
             <Text>* FOR DEMONTRATION PURPOSES ONLY - NOT THE REAL PRODUCT *</Text>
           </ContainerLottie>
+        </Container>
       </Wrapper>
     </>
   )
@@ -40,40 +44,50 @@ const Home = () => {
 export default Home
 
 const Wrapper = styled.div`
+  background-image: url(${mainLogo});
+  background-repeat: no-repeat;
+  background-size: 57.3rem 44rem;
+  height:100vh;
+  width:100vw;  
+`
+const Container = styled.div`
   display:flex;
-  justify-content:space-around;
-  padding-left:4rem;
+  background-color: rgba(255, 255, 255, 0.94);
+  height:100vh;
+  width:100vw;
 `
 const ContainerLottie = styled.div`
-  margin-top:5rem;
+  margin-top:6rem;
+  margin-left:1rem;
   display:flex;
   flex-direction:column;
   justify-content:flex-start;
 `
 const ContainerText = styled.div`
   font-family: 'IBM Plex Mono', monospace;
+  padding-left:4rem;
 `
 const ContainerPunchLine = styled.div`
   display:flex;
   flex-direction:column;
   justify-content:center;
   align-items:center;
-  margin:5rem 0 3.5rem 0;
+  margin:3.5rem 0 3rem 0;
 `
 const PunchLine = styled.div`
-  font-family: 'Recursive', sans-serif;
-  font-size:2.4rem;
-  font-weight:bold;
+  font-family: 'Caveat', cursive;
+  font-size:4rem;
   font-style:italic;
 `
 const SubPunchLine = styled.div`
-  font-size:1.6rem;
+  font-size:2rem;
   font-weight:bold;
   font-style:italic;
 `
 const List = styled.ul`
   text-align:center;
-  font-size:1.35rem;
+  font-weight:bold;
+  font-size:1.5rem;
 `
 const BulletPoints = styled.li`
   margin-left:3rem;

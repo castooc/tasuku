@@ -1,4 +1,4 @@
-# trip-planner
+# Tasuku
 
 
 authentification done with auth0 api

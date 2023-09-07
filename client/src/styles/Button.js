@@ -2,10 +2,10 @@ import { styled } from "styled-components"
 
 export const Button = styled.button`
   all : unset;
-  padding:11px;
   display:flex;
   align-items:center;
-  border: none;
+  margin-left:0.7rem;
+  padding:7px;
   border-radius: 2rem;
   cursor: pointer;
   transition: background-color 0.3s, transform 0.2s;
@@ -21,5 +21,6 @@ export const Button = styled.button`
   }
 `
 export const Text = styled.div`
-margin : 0 0.4rem;
+    font-size:0.8rem;
+    margin : 0 0.4rem;
 `

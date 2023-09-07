@@ -11,18 +11,18 @@ const MainNav = () => {
     <>
     <Wrapper>
       <ContainerIcons>
-          <Routes bg = {true} col = {true} to="/about">
+          <Routes to="/about">
             <Icon.Info size={30}/> 
             <Text>ABOUT</Text>
           </Routes>
         {isAuthenticated && (
           <>
-          <Routes bg = {true} col = {true} to="/profile">
+          <Routes to="/profile">
             <Icon.User size={30}/>
             <Text>PROFILE</Text>
           </Routes>
         
-          <Routes bg = {true} col = {true} to="/projects">
+          <Routes to="/projects">
             <Icon.Columns size={30}/>
             <Text>PROJECTS</Text>
           </Routes>
@@ -31,7 +31,7 @@ const MainNav = () => {
     </ContainerIcons>
    
     <ContainerText>
-        <Routes bg = {false} col = {false} to="/"> <Title>TASUKU</Title> </Routes>
+        <Routes variant = "title" to="/"> <Title>TASUKU</Title> </Routes>
     </ContainerText>
    
     <ContainerButtons>
@@ -48,6 +48,7 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items:center;
   padding-top:2rem;
+  max-height:115px;
 `
 const ContainerIcons = styled.div`
   display:flex;
@@ -72,29 +73,28 @@ const Routes = styled(NavLink)`
   display:flex;
   align-items:center;
 	font-family: 'Open Sans', sans-serif;
-  padding-left:0.7rem;
-  color : black;
-  padding:11px;
+  margin-left:0.7rem;
+  padding:7px;
   border-radius: 2rem;
   cursor: pointer;
   transition: background-color 0.3s, transform 0.2s;
   &:hover,
   &:focus {
   transform: translateY(-8px);
-  background-color:${(props)=>props.bg?"black":"white"};
-  color:${(props)=>props.col?"white":"black"};
+  background-color:${(props)=>props.variant === "title"?"white":"black"};
+  color:${(props)=>props.variant === "title"?"black":"white"};
   &:active {
-    background-color:${(props)=>props.bg?"black":"white"};
-    color:${(props)=>props.col?"white":"black"};
+    background-color:${(props)=>props.variant === "title"?"white":"black"};
+    color:${(props)=>props.variant === "title"?"black":"white"};
   }
 `
 const Title = styled.div`
   font-family: 'Zeyada', cursive;
-  padding-right:15px;
+  padding-right:20px;
   font-size:5rem;
 `
 const Text = styled.div`
-  font-size:1.1rem;
+  font-size:0.8rem;
   padding-left:0.3rem;
 `
 const HorizontalLine = styled.hr`
