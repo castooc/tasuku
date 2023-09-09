@@ -49,7 +49,7 @@ const Wrapper = styled.div`
 `
 const Container = styled.div`
   display:flex;
-  background-color: rgba(255, 255, 255, 0.94);
+  background-color: rgba(255, 255, 255, 0.91);
   height:80vh;
   width:100vw;
 `
@@ -90,6 +90,8 @@ const BulletPoints = styled.li`
   margin-left:3rem;
   margin-top:1rem;
   list-style-type:circle;
+  font-style:italic;
+
 `
 const Text = styled.div`
   font-size:0.8rem;

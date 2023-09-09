@@ -1,14 +1,14 @@
 import Lottie from "lottie-react"
 import animationData from "../assets/unorganizedBoard.json"
 import  aboutBg from "../assets/aboutBg.png"
-import {StickyNotes} from "../features/stickyNotes"
+import {PinkStickyNote} from "../features/stickyNotes"
 import { styled } from 'styled-components'
 
 const About = () => {
   const quote = ["A Project Management Application", 
-                "An implementation of a Kanban board to better visualize and optimize workflow", 
-                'A product of columns representing different stages of work, such as "To Do", "In Progress" and "Done"',
-                "A collection of task items in the form of sticky notes, that are moved across said columns as they progress through the workflow",
+                "An implementation of a Kanban board to better visualize workflow", 
+                'A product of columns representing different stages of work',
+                "A collection of task items moved across columns as they progress",
                 ];
 
   return (
@@ -20,12 +20,12 @@ const About = () => {
         <StickyNotesContainer>
           {quote.map((element)=>{
             return(
-            <StickyNotes quote = {element}/>
+            <PinkStickyNote key = {element} quote = {element}/>
             )
           })}
         </StickyNotesContainer>
         <LottieContainer>
-          <Lottie style={{ height: 300, width:600}} animationData={animationData}/>
+          <Lottie style={{ height: 350, width:700}} animationData={animationData}/>
           <Text>Don't be like Isabelle, use Tasuku</Text>
           <EndNote>Tasuku wishes you a happy tasking!</EndNote>
         </LottieContainer>
@@ -54,7 +54,7 @@ const TitleContainer = styled.div`
 const StickyNotesContainer = styled.div`
   display:flex;
   justify-content:space-around;
-  margin-top:2rem;
+  margin-top:1rem;
 `
 const LottieContainer = styled.div`
   display:flex;
@@ -67,10 +67,9 @@ const Title = styled.div`
   font-size:3rem;
 `
 const Text = styled.div`
-  font-size:1.5rem;
+  font-size:1.4rem;
 `
 const EndNote = styled.div`
   font-size:2rem;
-  font-style:italic;
   font-weight:bold;
 `
