@@ -3,8 +3,7 @@ import Lottie from "lottie-react"
 import animationData from "../assets/kanbanBoard.json"
 import { styled } from "styled-components";
 import { verifyExistingUser } from "../features/authentification";
-import  mainLogo from "../assets/mainLogo.png"
-// import roadtrip from "../assets/roadtrip.jpg"
+import mainBg from "../assets/mainBg.png";
 
 const Home = () => {
   const { user, isAuthenticated } = useAuth0();
@@ -44,16 +43,14 @@ const Home = () => {
 export default Home
 
 const Wrapper = styled.div`
-  background-image: url(${mainLogo});
+  background-image: url(${mainBg});
   background-repeat: no-repeat;
   background-size: 57.3rem 44rem;
-  height:100vh;
-  width:100vw;  
 `
 const Container = styled.div`
   display:flex;
   background-color: rgba(255, 255, 255, 0.94);
-  height:100vh;
+  height:80vh;
   width:100vw;
 `
 const ContainerLottie = styled.div`

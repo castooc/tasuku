@@ -1,7 +1,6 @@
 import { styled } from "styled-components"
 import { useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react"
-import { Trips } from "../features/trips";
 import ProfileModal from "../features/profileModal/components/ProfileModal";
 
 
@@ -23,7 +22,6 @@ const Profile = () => {
       <ProfileModal isOpen = {isOpen} setIsOpen = {setIsOpen}/>
       <img src={user.picture} alt={user.nickname} />
       <div>{user.nickname}</div>
-      <Trips/>
     </Wrapper>
   )
 }
