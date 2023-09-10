@@ -1,5 +1,5 @@
 import { styled } from 'styled-components'
-import  stickyBg from "../../../assets/pinkSticky.png"
+import  stickyBg from "../assets/pinkSticky.png"
 
 
 export const PinkStickyNote = ({quote}) => {

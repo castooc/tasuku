@@ -17,6 +17,9 @@ const Home = () => {
       <Wrapper>
         <Container>
 
+
+        <SubContainer>
+
           <ContainerText>
               <ContainerPunchLine>
                 <PunchLine>Channel Your Inner Organizational Guru</PunchLine>
@@ -34,8 +37,12 @@ const Home = () => {
           <ContainerLottie>
             <Lottie style={{ height: 500, width:750}} animationData={animationData}/>
             <Text>* FOR DEMONTRATION PURPOSES ONLY - NOT THE REAL PRODUCT *</Text>
+
           </ContainerLottie>
+        </SubContainer>
+        <EndNote>Tasuku wishes you a happy tasking!</EndNote>
         </Container>
+
       </Wrapper>
     </>
   )
@@ -49,9 +56,14 @@ const Wrapper = styled.div`
 `
 const Container = styled.div`
   display:flex;
-  background-color: rgba(255, 255, 255, 0.91);
+  flex-direction:column;
+  align-items:center;
   height:80vh;
-  width:100vw;
+`
+const SubContainer = styled.div`
+  display:flex;
+  background-color: rgba(255, 255, 255, 0.88);
+  height:80vh;
 `
 const ContainerLottie = styled.div`
   margin-top:6rem;
@@ -79,7 +91,6 @@ const PunchLine = styled.div`
 const SubPunchLine = styled.div`
   font-size:2rem;
   font-weight:bold;
-  font-style:italic;
 `
 const List = styled.ul`
   text-align:center;
@@ -89,10 +100,12 @@ const List = styled.ul`
 const BulletPoints = styled.li`
   margin-left:3rem;
   margin-top:1rem;
-  list-style-type:circle;
-  font-style:italic;
-
 `
 const Text = styled.div`
   font-size:0.8rem;
+`
+const EndNote = styled.div`
+  font-family: 'IBM Plex Mono', monospace;
+  font-size:2.5rem;
+  font-weight:bold;
 `

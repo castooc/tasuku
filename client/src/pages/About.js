@@ -1,7 +1,7 @@
 import Lottie from "lottie-react"
 import animationData from "../assets/unorganizedBoard.json"
 import  aboutBg from "../assets/aboutBg.png"
-import {PinkStickyNote} from "../features/stickyNotes"
+import { PinkStickyNote } from "../features/pinkStickyNotes"
 import { styled } from 'styled-components'
 
 const About = () => {
@@ -25,9 +25,8 @@ const About = () => {
           })}
         </StickyNotesContainer>
         <LottieContainer>
-          <Lottie style={{ height: 350, width:700}} animationData={animationData}/>
+          <Lottie style={{ height: 375, width:700}} animationData={animationData}/>
           <Text>Don't be like Isabelle, use Tasuku</Text>
-          <EndNote>Tasuku wishes you a happy tasking!</EndNote>
         </LottieContainer>
         
       </Container>
@@ -67,9 +66,7 @@ const Title = styled.div`
   font-size:3rem;
 `
 const Text = styled.div`
+  margin-top:1rem;
   font-size:1.4rem;
-`
-const EndNote = styled.div`
-  font-size:2rem;
   font-weight:bold;
 `

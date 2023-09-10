@@ -13,5 +13,6 @@ const options = {
 const client = new MongoClient(MONGO_URI, options);
 const db = client.db("tasuku");
 const usersCollection = db.collection("users");
+const projectsCollection = db.collection("projects");
 
-module.exports = { client, db, usersCollection};
+module.exports = { client, db, usersCollection, projectsCollection};

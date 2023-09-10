@@ -1,8 +1,5 @@
 # Tasuku
 
+Tasuku is a project management web application. 
 
-authentification done with auth0 api
-login, logout, sign up , users information with mongodb
-protected routes with auth0
-
-mongdb for data persistence
+It is based on the Kanban methodology, which allows you to visualize all the tasks related to a project and track the progress along the way.
