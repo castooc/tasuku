@@ -1,18 +1,37 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { SideBar } from '../features/kanbanSideBar';
 
 // import { Column } from '../features/kanbanColumn';
 
 const Projects = ()=> {
-  const [name, setName] = useState("casta1")
+  const [name, setName] = useState("")
+  const [projects, setProjects] = useState([]);
   const [currentProject, setCurrentProject] = useState({
-    name : name,
+    name : `Project ${projects.length + 1}`,
     tasks : {
-      Todo: ['Task 1', 'Task 99'],
-      InProgress: ['Task 3', 'Task 4'],
-      Done: ['Task 5', 'Task 6'],
+      Todo: [],
+      InProgress: [],
+      Done: [],
   }})
+
+  useEffect(() => {
+    // Calculate the project name based on the current length of the projects array
+    const projectName = `Project ${projects.length + 1}`;
+    setCurrentProject((prevProject) => ({
+      ...prevProject,
+      name: projectName,
+    }));
+  }, [projects]);
+
+  // const [currentProject, setCurrentProject] = useState({
+  //   name : name,
+  //   tasks : {
+  //     Todo: ['Task 1', 'Task 2'],
+  //     InProgress: ['Task 3', 'Task 4'],
+  //     Done: ['Task 5', 'Task 6'],
+  // }})
+
 
   const handleDragStart = (e, task, status) => {
     e.dataTransfer.setData('task', task);
@@ -37,10 +56,17 @@ const Projects = ()=> {
     }
   };
 
+
+
+  //ADD BUTTONS TO CREATE CARDS AND THEN VOIR POUR LE DRAG MOTION TO ALSO UPDATE THE PROJECT IN THE DB ON EVERY DRAG
+  
+  
+  
+  
   return (
     <KanbanBoardContainer>
 
-      <SideBar project = {currentProject}/>
+      <SideBar projects = {projects} setProjects = {setProjects} currentProject = {currentProject} setCurrentProject = {setCurrentProject}/>
 
       {Object.keys(currentProject["tasks"]).map((status) => (
         <KanbanColumn key={status} onDragOver={handleDragOver} onDrop={(e) => handleDrop(e, status)}>

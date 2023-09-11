@@ -15,6 +15,7 @@ const {
   createProject,
   getUserProjects,
   updateProjects,
+  updateProjectName,
 } = require('../handlers/handler');
 
 // endpoints for getting users
@@ -24,5 +25,6 @@ router.post("/createuser", createUser);
 router.post("/createproject", createProject);
 router.get("/userprojects/:_id",getUserProjects)
 router.patch("/updateprojects/:_id", updateProjects)
+router.patch("/updateprojectname/:_id", updateProjectName)
 
 module.exports = router;

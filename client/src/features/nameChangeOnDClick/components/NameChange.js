@@ -35,12 +35,16 @@ export const NameChange = ({ text, onTextChange })=>{
   );
 }
 const Text = styled.div`
+  font-size:16px;
   cursor: pointer;
-  margin-bottom: 10px;
-  transition: background-color 0.4s ease;
+  border-radius:1rem;
+  transition: background-color 0.5s, transform 0.4s;
   padding: 0.4rem;
   &:hover {
+    transform: translateY(-8px);
     background-color: #F0FFFF;
     color:black;
   }
+  cursor: pointer;
+  
 `;

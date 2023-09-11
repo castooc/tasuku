@@ -62,11 +62,11 @@ const createProject = async (req, res) => {
 
 const updateProjects = async (req, res) => {
   const { _id } = req.params;
-  console.log(req.body.project)
+  console.log(req.body.projects)
   try {
     const result = await projectsCollection.updateOne(
       { _id: _id },
-      { $push: {project : { $each :[req.body.project]} } }
+      { $push: {projects : { $each :[req.body.projects]} } }
       );
       if (result.modifiedCount !== 0){
         return res.status(201).json({ status: 201, data: req.body });
@@ -77,7 +77,24 @@ const updateProjects = async (req, res) => {
       res.status(500).json({ status: 500, data: req.body, message: error.message });
     }
   };
-  
+
+  const updateProjectName = async (req, res) => {
+    const { _id } = req.params;
+    try {
+      const result = await projectsCollection.updateOne(
+        { _id: _id, "projects.name" :req.body.oldName },
+        { $set: {"projects.$.name" :req.body.newName } }
+        );
+        if (result.modifiedCount !== 0){
+          return res.status(201).json({ status: 201, data: req.body });
+        } else{
+          res.status(404).json({ status: 404, message: "No projects found to update" });
+        }
+      } catch (error) {
+        res.status(500).json({ status: 500, data: req.body, message: error.message });
+      }
+    };
+
   const getUserProjects = async (req, res) => {
     const { _id } = req.params;
     try {
@@ -98,4 +115,5 @@ const updateProjects = async (req, res) => {
   createProject,
   getUserProjects,
   updateProjects,
+  updateProjectName,
 }

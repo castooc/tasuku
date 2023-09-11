@@ -7,7 +7,6 @@ export const verifyExistingUser = async(user) => {
     let flag = false;
     try {
         const res = await fetchRequest(getUsers);
-        console.log(res.data)
         res.data.forEach(element => {
             if (user.sub === element["_id"]){
                 // User is in DB

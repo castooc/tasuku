@@ -17,7 +17,6 @@ const Home = () => {
       <Wrapper>
         <Container>
 
-
         <SubContainer>
 
           <ContainerText>

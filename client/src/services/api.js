@@ -48,3 +48,14 @@ export const updateProjects = async (body) => {
   });
   return res.json();
 }
+export const updateProjectName = async (body) => {
+  const res = await fetch(`/tasuku/updateprojectname/${body._id}`, {
+    method: "PATCH",
+    headers: {
+      "Accept": "application/json",
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(body)
+  });
+  return res.json();
+}
