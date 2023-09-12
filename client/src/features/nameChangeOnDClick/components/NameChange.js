@@ -5,6 +5,7 @@ export const NameChange = ({ text, onTextChange })=>{
   const [isEditing, setIsEditing] = useState(false);
   const [editedText, setEditedText] = useState(text);
 
+
   const handleDoubleClick = () => {
     setIsEditing(true);
   };

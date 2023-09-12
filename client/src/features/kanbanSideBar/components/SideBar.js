@@ -12,7 +12,7 @@ export const SideBar = ({projects, setProjects, currentProject, setCurrentProjec
   const projectTemplate = ({
     name : `Project ${projects.length + 1}`,
     tasks : {
-      Todo: ["lol","loll"],
+      Todo: [],
       InProgress: [],
       Done: [],
   }})
@@ -20,6 +20,7 @@ export const SideBar = ({projects, setProjects, currentProject, setCurrentProjec
   const [texts, setTexts] = useState([]);
   const [newText, setNewText] = useState(null);
   const [oldText, setOldText] = useState(null);
+  const [isSelected, setIsSelected] = useState(false);
 
   useEffect(() => {
     (async () => {
@@ -28,6 +29,7 @@ export const SideBar = ({projects, setProjects, currentProject, setCurrentProjec
         const data = res.data.projects
         if(res.status !== 404){
         setProjects(data)
+        setCurrentProject(data[0])
         let newTexts = [...texts];
         data.forEach((project) => {
           newTexts = [...newTexts, project.name]
@@ -74,7 +76,7 @@ export const SideBar = ({projects, setProjects, currentProject, setCurrentProjec
     try {
       const existingUserProjects = await fetchRequest(()=>getUserProjects(user.sub));
       if (existingUserProjects.data !== "Not Found") {
-        await fetchRequest(()=>updateProjects({_id : user.sub, projects : projectTemplate}))
+        await fetchRequest(()=>updateProjects({_id : user.sub, projects : projects, newProject : projectTemplate}))
       } else{
         await fetchRequest(()=>createProject({_id : user.sub, projects : [projectTemplate]}));
       }
@@ -86,7 +88,14 @@ export const SideBar = ({projects, setProjects, currentProject, setCurrentProjec
   }
 
   const handleProjectClick = async (project)=>{
-    setCurrentProject(project)
+    const current = projects.filter((existingProject) => {
+      if (existingProject.name === project.name) {
+        console.log(existingProject)
+        return existingProject; // Replace the existing project with the updated project
+      }
+    });
+    setCurrentProject(...current)
+    setIsSelected(isSelected)
   }
   
   return (
@@ -107,9 +116,8 @@ export const SideBar = ({projects, setProjects, currentProject, setCurrentProjec
               text={project.name}
               onTextChange={(newText) => handleTextChange(index, newText, project.name)}
             />
-            <Button onClick = {()=>handleProjectClick(project)}>Select</Button>
+            <SelectButton variant = {isSelected} onClick = {()=>handleProjectClick(project)}>Select</SelectButton>
           </ContainerProject>
-
         ))}
       </ContainerProjects>
     </Wrapper>
@@ -146,6 +154,25 @@ const Button = styled.button`
   transform: translateY(-8px);
   background-color:#F0FFFF;
   color:black;
+  }
+`
+const SelectButton = styled.button`
+  all : unset;
+  font-size:16px;
+  display:flex;
+  justify-content: space-around;
+  align-items:center;
+  border-radius:1rem;
+  padding:0.3rem;
+  cursor: pointer;
+  transition: background-color 0.5s, transform 0.4s;
+  &:hover,
+  &:focus {
+  background-color:${(props)=>props.variant === true?"black":"#F0FFFF"};
+  color:${(props)=>props.variant === true?"#F0FFFF":"black"};
+  &:active {
+    background-color:${(props)=>props.variant === true?"black":"#F0FFFF"};
+    color:${(props)=>props.variant === true?"#F0FFFF":"black"};
   }
 `
 const Text = styled.div`

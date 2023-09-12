@@ -13,18 +13,6 @@ import Profile from "./pages/Profile";
 import Projects from "./pages/Projects";
 import NotFound from "./pages/NotFound";
 
-    //CREATE ROUTES AND SERVER API TO UPDATE THE NAMES WHEN CHANGED// ok
-    
-    // for cards : just add buttons to the columns to add a string text to the array of the current project selected
-    //Cards to be able to change name and update names in the DB also// in progress
-
-    //delete project and card route and button 
-
-    //When click create project, create blank columns and add a project in the tab
-    //when click project, the cards change accordingly
-
-    // extra : add user image , description, urgency when click on the cards
-
 const App = () => {
   const { isLoading } = useAuth0();
 

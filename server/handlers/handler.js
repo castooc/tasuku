@@ -62,17 +62,28 @@ const createProject = async (req, res) => {
 
 const updateProjects = async (req, res) => {
   const { _id } = req.params;
-  console.log(req.body.projects)
   try {
-    const result = await projectsCollection.updateOne(
-      { _id: _id },
-      { $push: {projects : { $each :[req.body.projects]} } }
-      );
-      if (result.modifiedCount !== 0){
-        return res.status(201).json({ status: 201, data: req.body });
-      } else{
-        res.status(404).json({ status: 404, message: "No projects found to update" });
-      }
+    if(req.body.newProject !== null){
+      const result = await projectsCollection.updateOne(
+        { _id: _id },
+        { $push: {projects : { $each :[req.body.newProject]} } }
+        );
+        if (result.modifiedCount !== 0){
+          return res.status(201).json({ status: 201, data: req.body });
+        } else{
+          return res.status(404).json({ status: 404, message: "New project not added" });
+        }
+    } else{
+      const result = await projectsCollection.updateOne(
+        { _id: _id },
+        { $set: { projects: req.body.projects } }
+        );
+        if (result.modifiedCount !== 0){
+          return res.status(201).json({ status: 201, data: req.body });
+        } else{
+          return res.status(404).json({ status: 404, message: "Projects not updated" });
+        }
+    }
     } catch (error) {
       res.status(500).json({ status: 500, data: req.body, message: error.message });
     }
